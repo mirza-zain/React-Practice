@@ -1,6 +1,8 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
+import MyUl from '../resuableComponent/MyUl';
+import MyTable from '../resuableComponent/MyTable';
 
-function EmployeeForm() {
+function EmployeeForm(props) {
     const [employeeObj, setEmployeeObj] = useState({name: '', mobile: '', email: '', address: ''})
     const [employeeArr, setEmployeeArr] = useState([])
 
@@ -11,9 +13,17 @@ function EmployeeForm() {
     const pushEmployee = () => {
         setEmployeeArr(previousArr => [...previousArr, employeeObj])
     }
+    const city = ["Karachi", "Islamabad", "Lahore"]
+    const colArry = [{header: "Name", field: "name"},
+        {header: "Mobile", field: "mobile"},
+        {header: "Email", field: "email"},
+        {header: "Address", field: "address"}
+    ]
 
   return (
     <div className='container'>
+        <h3>{props.pageTitle}</h3>
+        {/* <MyUl list = {city} /> */}
         <div className='row'>
             <div className='col-4'>
                 <label>Enter Name</label>
@@ -43,7 +53,8 @@ function EmployeeForm() {
         </div>
         <div className='row pt-3'>
             <div className='col-6'>
-                <table className='table table-border'>
+                <MyTable colArry = {colArry} dataArry = {employeeArr} />
+                {/* <table className='table table-border'>
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -65,7 +76,7 @@ function EmployeeForm() {
                             })
                         }
                     </tbody>
-                </table>
+                </table> */}
             </div>
         </div>
     </div>

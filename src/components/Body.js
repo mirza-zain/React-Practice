@@ -8,7 +8,7 @@ export default function Body() {
     <article>
       {/* <Event/> */}
       {/* <Sttate/> */}
-      <EmployeeForm />
+      <EmployeeForm pageTitle = "Welcome to Props Section" />
     </article>
   );
 }
